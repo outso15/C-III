@@ -1,0 +1,10 @@
+Libro: Los Juegos del hambre*  Autor: Suzanne Collins/, Genero: Ciencia ficcion-, Paginas: 374_
+Libro: Harry Potter*  Autor: J. K. Rowling/, Genero: Fantasia-, Paginas: 223_
+Libro: El señor de los anillos*  Autor: J. R. R. Tolkien/, Genero: Fantasia-, Paginas: 300_
+Libro: Juego de tronos*  Autor: George R. R. Martin/, Genero: Fantasia-, Paginas: 694_
+Libro: EL Hobbit*  Autor: J. R. R. Tolkien/, Genero: Fantasia-, Paginas: 310_
+Libro: Yo robot*  Autor: Isaac Asimov/, Genero: Ciencia ficcion-, Paginas: 253_
+Libro: Dracula*  Autor: Bram Stoker/, Genero: Terror-, Paginas: 400_
+Libro: Soy leyenda*  Autor: Richard Matheson/, Genero: Terror-, Paginas: 160_
+Libro: Eso*  Autor: Stephen King/, Genero: Terror-, Paginas: 1138_
+Libro: Puls*  Autor: Stephen King/, Genero: Terror-, Paginas: 350_
