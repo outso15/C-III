@@ -40,33 +40,6 @@ class Cola:
     def tamano(self):
        return len(self.items)
 
-#    def buscar(self, x):
-#        if(self.es_vacia==True):
-#            print("No se tiene registro del libro solicitado.")
-#        else:
-#            for i in range(0,len(self.items)):
-#                if(self.items[i].genero=='Ciencia ficcion-' ):
-#                    print("\nInformacion del libro encontrado:")
-                    #print(self.items[i].titulo)
-                    #print(self.items[i].autor)
-                    #print(self.items[i].genero)
-                    #print(self.items[i].paginas)
-                          
-                    
-                    #main()
-#                else:
-#                    print("No se tiene registro del libro solicitado.")
-#                    print(self.items[i].titulo)
-                    #main()
-    
-    #def getitem(self, key):
-    # It's probably better to catch any IndexError to at least provide
-    # a class-specific exception
-    #return self.items[key]
-
-#def main():
-#    print('H')
-    
     
 c = Cola()
 N = Cola()
