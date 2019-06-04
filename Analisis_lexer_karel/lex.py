@@ -1,89 +1,43 @@
 import ply.lex as lex
+import re
 
-declaracionesiniciales = ['iniciar_programa','inicia_ejecucion','termina_ejecucion','finalizar_programa','define_nueva_instruccion','como','define_prototipo_instruccion']
+declaracionesiniciales = ['iniciar','terminar','definir_nueva_instruccion']
 
-expresiones = ['apagate','gira_izquierda','avanza','coge_zumbador','deja_zumbador','sal_de_instruccion']
+expresiones = ['expresion','fin_instruccion','inicio_instruccion','variable','numero','fin_linea']
 
-sentencias = ['si','entonces','sino','mientras','hacer','repetir','veces','y','o','si_es_cero','precede','sucede']
+sentencias = ['sentencia','condicion']
 
-booleanos=['frente_libre','junto_a_zumbador','orientado_al_norte','frente_bloqueado','no_junto_a_zumbador','orientado_al_sur','izquierda_libre','algun_zumbador_en_la_mochila',
-           'orientado_al_este','izquierda_bloqueada','ningun_zumbador_en_la_mochila','orientado_al_oeste','derecha_libre','no_orientado_al_norte','derecha_bloqueada',
-           'no_orientado_al_sur','no_orientado_al_este','no_orientado_al_oeste']
+booleanos=['condicion_zumbador','orientacion','comprobar_libre','comprobar_bloqueo']
 
 tokens = []+ declaracionesiniciales + expresiones + sentencias + booleanos
-
-
 t_ignore = ' \t'
 
 #Declaraciones iniciales
-t_iniciar_programa = r'iniciar_programa'
-t_inicia_ejecucion = r'inicia-ejecucion'
-t_termina_ejecucion = r'termina-ejecucion'
-t_finalizar_programa = r'finalizar-programa'
-t_define_nueva_instruccion = r'define-nueva-instruccion'
-t_como = r'como'
-t_define_prototipo_instruccion = r'define-prototipo-instruccion'
+t_iniciar = r'(iniciar-programa|inicia-ejecucion)'
+t_terminar = r'(termina-ejecucion|finalizar-programa)'
+t_definir_nueva_instruccion = r'(define-nueva-instruccion|como)'
+
 #Expresiones
-t_apagate = r'apagate'
-t_gira_izquierda = r'gira-izquierda'
-t_avanza = r'avanza'
-t_coge_zumbador = r'coge-zumbador'
-t_deja_zumbador = r'sal-de-instruccion'
-#Sentencias
-t_si = r'si'
-t_entonces = r'entonces'
-t_sino = r'sino'
-t_mientras = r'mientras'
-t_hacer = r'hacer'
-t_repetir = r'repetir'
-t_veces = r'veces'
-t_y = r'y'
-t_o = r'o'
-t_si_es_cero = r'si-es-cero'
-t_precede = r'precede'
-t_sucede = r'sucede'
+t_expresion = r'(dejar-zumbador|apagate|gira-izquierda|gira-derecha|avanza|coge-zumbador|sal-de-instruccion)'
+t_fin_instruccion ='fin;'
+t_fin_linea=r';'
+t_inicio_instruccion='inicio'
+t_variable=r'([A-Z])'
+t_numero=r'(\d)'
+
+#Sentencias y condiciones
+t_sentencia= r'(si|entonces|sino|mientras|hacer|repetir|veces)'
+t_condicion= r'(y|o|si-es-cero|precede|sucede|no)'
+
 #Booleanos
-t_frente_libre = r'frente-libre'
-t_junto_a_zumbador = r'junto-a-zumbador'
-t_orientado_al_norte = r'orientado-al-norte'
-t_frente_bloqueado = r'frente-bloqueado'
-t_no_junto_a_zumbador = r'no-junto-a-zumbador'
-t_orientado_al_sur = r'orientado-al-sur'
-t_izquierda_libre = r'izquierda-libre'
-t_algun_zumbador_en_la_mochila = r'algun-zumbador-en-la-mochila'
-t_orientado_al_este = r'orientado-al-este'
-t_izquierda_bloqueada = r'izquierda-bloqueada'
-t_ningun_zumbador_en_la_mochila = r'ningun-zumbador-en-la-mochila'
-t_orientado_al_oeste = r'orientado-al-oeste'
-t_derecha_libre = r'derecha-libre'
-t_no_orientado_al_norte = r'no-orientado-al-norte'
-t_derecha_bloqueada = r'derecha-bloqueada'
-t_no_orientado_al_sur = r'no-orientado-al-sur'
-t_no_orientado_al_este = r'no-orientado-al-este'
-t_no_orientado_al_oeste = r'no-orientado-al-oeste'
+t_condicion_zumbador = r'(no-junto-a-zumbador|junto-a-zumbador|algun-zumbador-en-la-mochila|ningun-zumbador-en-la-mochila)'
+t_orientacion =r'(orientado-al-norte|orientado-al-sur|orientado-al-este|orientado-al-oeste|no-orientado-al-norte|no-orientado-al-sur|no-orientado-al-este|no-orientado-al-oeste)'
+t_comprobar_libre= r'(frente-libre|izquierda-libre|derecha-libre)'
+t_comprobar_bloqueo=r'(frente-bloqueado|izquierda-bloqueada|derecha-bloqueada)'
 
 
-PROGRAMA_FILE = "programa.in"
-ANALISIS_FILE = "analisis.out"
-
-def escribir(analisis):
-    archivo = open(PROGRAMA_FILE, "a")
-    archivo.write(str(analisis)+'\n')
-    file.close()
-
-
-def leer():
-    archivo = open(PROGRAMA_FILE, "r")
-    filas = (archivo.read().splitlines())
-    clearFile(ANALISIS_FILE)
-    for exp in filas:
-        result = lexer.tokens(programa)
-        writeFile(result)
-        lexer.lista = []
-        print(programa)
-    file.close()
-
-
+print ("¿Cual es la ruta del archivo?:")
+m = raw_input()
 
 # Error handling rule
 def t_error(t):
@@ -100,15 +54,14 @@ def tokens(programa):
         lista.append(str(tok.value) + " -> " + str(tok.type))
     return lista
 
-
-lex.lex() # Build the lexer
-archivo = open("codigo.txt", "r") 
-
+archivo = open(m, "r") 
+salida = open('analisis.txt',"a")
 for linea in archivo.readlines():
     lex.input(linea)
-    print("\nlinea : "+linea)
+    print("\nlinea : " + linea +"\n")
+    salida.write("\nlinea : "+linea )   
     while True:
         tok = lex.token()
         if not tok: break
         print (str(tok.value) + " -> " + str(tok.type))
-       #print (str(tok.value) + " - " + str(tok.type))
+        salida.write(str(tok.value) + " -> " + str(tok.type) + " || ")
