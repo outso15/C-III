@@ -1,0 +1,66 @@
+
+linea : iniciar-programa
+iniciar-programa -> iniciar || 
+linea : define-nueva-instruccion GIRADERECHA como
+define-nueva-instruccion -> definir_nueva_instruccion || G -> variable || I -> variable || R -> variable || A -> variable || D -> variable || E -> variable || R -> variable || E -> variable || C -> variable || H -> variable || A -> variable || como -> definir_nueva_instruccion || 
+linea : repetir 3 veces
+repetir -> sentencia || 3 -> numero || veces -> sentencia || 
+linea : gira-izquierda
+gira-izquierda -> expresion || 
+linea : fin;
+fin; -> fin_instruccion || 
+linea : define-nueva-instruccion SUBE como
+define-nueva-instruccion -> definir_nueva_instruccion || S -> variable || U -> variable || B -> variable || E -> variable || como -> definir_nueva_instruccion || 
+linea : inicio
+inicio -> inicio_instruccion || 
+linea : si no-junto-a-zumbador entonces
+si -> sentencia || no-junto-a-zumbador -> condicion_zumbador || entonces -> sentencia || 
+linea : gira-izquierda;
+gira-izquierda -> expresion || ; -> fin_linea || 
+linea : avanza;
+avanza -> expresion || ; -> fin_linea || 
+linea : mientras derecha-bloqueada hacer
+mientras -> sentencia || derecha-bloqueada -> comprobar_bloqueo || hacer -> sentencia || 
+linea : avanza;
+avanza -> expresion || ; -> fin_linea || 
+linea : gira-derecha;
+gira-derecha -> expresion || ; -> fin_linea || 
+linea : avanza;
+avanza -> expresion || ; -> fin_linea || 
+linea : fin;
+fin; -> fin_instruccion || 
+linea : define-nueva-instruccion BAJA como
+define-nueva-instruccion -> definir_nueva_instruccion || B -> variable || A -> variable || J -> variable || A -> variable || como -> definir_nueva_instruccion || 
+linea : inicio
+inicio -> inicio_instruccion || 
+linea : gira-derecha;
+gira-derecha -> expresion || ; -> fin_linea || 
+linea : mientras frente-libre hacer
+mientras -> sentencia || frente-libre -> comprobar_libre || hacer -> sentencia || 
+linea : avanza;
+avanza -> expresion || ; -> fin_linea || 
+linea : gira-izquierda;
+gira-izquierda -> expresion || ; -> fin_linea || 
+linea : mientras frente-libre hacer
+mientras -> sentencia || frente-libre -> comprobar_libre || hacer -> sentencia || 
+linea : avanza;
+avanza -> expresion || ; -> fin_linea || 
+linea : fin;
+fin; -> fin_instruccion || 
+linea : inicia-ejecucion
+inicia-ejecucion -> iniciar || 
+linea : mientras no-junto-a-zumbador hacer
+mientras -> sentencia || no-junto-a-zumbador -> condicion_zumbador || hacer -> sentencia || 
+linea : inicio
+inicio -> inicio_instruccion || 
+linea : SUBE;
+S -> variable || U -> variable || B -> variable || E -> variable || ; -> fin_linea || 
+linea : BAJA;
+B -> variable || A -> variable || J -> variable || A -> variable || ; -> fin_linea || 
+linea : fin;
+fin; -> fin_instruccion || 
+linea : apagate;
+apagate -> expresion || ; -> fin_linea || 
+linea : termina-ejecucion
+termina-ejecucion -> terminar || 
+linea : finalizar-programafinalizar-programa -> terminar || 
