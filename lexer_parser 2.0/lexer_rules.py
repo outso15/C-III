@@ -1,9 +1,9 @@
-tokens = ['NUMBER','PLUS','TIMES','MINUS', 'DIV']
+tokens = ['NUMBER','PLUS','TIMES','MINUS','DIVIDE']
 
 t_PLUS = r"\+"
-t_MINUS = r"\-"
-t_DIV = r"\/"
 t_TIMES = r"\*"
+t_MINUS = r"\-"
+t_DIVIDE = r"\/"
 
 def t_NUMBER(token):
     r"[1-9][0-9]*"
