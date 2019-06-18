@@ -13,8 +13,8 @@ def p_expression_times(subexpr):
     'expression : expression expression TIMES'
     subexpr[0] = subexpr[1] * subexpr[2]
     
-def p_expression_div(subexpr):
-    'expression : expression expression DIV'
+def p_expression_divide(subexpr):
+    'expression : expression expression DIVIDE'
     subexpr[0] = subexpr[1] / subexpr[2]
 
 def p_expression_term(subexpr):
