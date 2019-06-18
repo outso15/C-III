@@ -1,0 +1,112 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> expression term PLUS
+Rule 2     expression -> term
+Rule 3     term -> term factor TIMES
+Rule 4     expression -> expression term MINUS
+Rule 5     term -> term factor DIV
+Rule 6     term -> factor
+Rule 7     factor -> NUMBER
+Rule 8     factor -> expression
+
+Terminals, with rules where they appear
+
+DIV                  : 5
+MINUS                : 4
+NUMBER               : 7
+PLUS                 : 1
+TIMES                : 3
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 4 8 0
+factor               : 3 5 6
+term                 : 1 2 3 4 5
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . expression term PLUS
+    (2) expression -> . term
+    (4) expression -> . expression term MINUS
+    (3) term -> . term factor TIMES
+    (5) term -> . term factor DIV
+    (6) term -> . factor
+    (7) factor -> . NUMBER
+    (8) factor -> . expression
+
+    NUMBER          shift and go to state 2
+
+    term                           shift and go to state 1
+    expression                     shift and go to state 4
+    factor                         shift and go to state 3
+
+state 1
+
+    (2) expression -> term .
+    (3) term -> term . factor TIMES
+    (5) term -> term . factor DIV
+    (7) factor -> . NUMBER
+    (8) factor -> . expression
+    (1) expression -> . expression term PLUS
+    (2) expression -> . term
+    (4) expression -> . expression term MINUS
+    (3) term -> . term factor TIMES
+    (5) term -> . term factor DIV
+    (6) term -> . factor
+
+  ! shift/reduce conflict for NUMBER resolved as shift
+    TIMES           reduce using rule 2 (expression -> term .)
+    DIV             reduce using rule 2 (expression -> term .)
+    $end            reduce using rule 2 (expression -> term .)
+    NUMBER          shift and go to state 2
+
+  ! NUMBER          [ reduce using rule 2 (expression -> term .) ]
+
+    term                           shift and go to state 1
+    expression                     shift and go to state 6
+    factor                         shift and go to state 5
+
+state 2
+
+    (7) factor -> NUMBER .
+
+    TIMES           reduce using rule 7 (factor -> NUMBER .)
+    DIV             reduce using rule 7 (factor -> NUMBER .)
+    NUMBER          reduce using rule 7 (factor -> NUMBER .)
+    PLUS            reduce using rule 7 (factor -> NUMBER .)
+    MINUS           reduce using rule 7 (factor -> NUMBER .)
+    $end            reduce using rule 7 (factor -> NUMBER .)
+
+
+state 3
+
+    (6) term -> factor .
+
+    PLUS            reduce using rule 6 (term -> factor .)
+    MINUS           reduce using rule 6 (term -> factor .)
+    NUMBER          reduce using rule 6 (term -> factor .)
+    $end            reduce using rule 6 (term -> factor .)
+
+
+state 4
+
+    (0) S' -> expression .
+    (1) expression -> expression . term PLUS
+    (4) expression -> expression . term MINUS
+    (8) factor -> expression .
+    (3) term -> . term factor TIMES
+    (5) term -> . term factor DIV
+    (6) term -> . factor
+    (7) factor -> . NUMBER
+    (8) factor -> . expression
+    (1) expression -> . expression term PLUS
+    (2) expression -> . term
+    (4) expression -> . expression term MINUS
+
