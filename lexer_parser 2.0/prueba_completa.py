@@ -21,7 +21,7 @@ class Prueba_Completa:
             parser = yacc(module=parser_rules)
             expression = parser.parse(' '.join(map(str, linea[:-1])).strip('[]'), lexer)
             
-            impresion += str(expression)
+            impresion += str(expression)+'\n'
         return impresion
 
     def escribir_archivo(self,resultado):
