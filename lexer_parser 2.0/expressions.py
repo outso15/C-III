@@ -20,3 +20,4 @@ class BinaryOperation(Expression):
         res_l = self.left.evaluate()
         res_r = self.right.evaluate()
         return self.operator(res_l, res_r)
+ 
