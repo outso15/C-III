@@ -23,3 +23,4 @@ def t_error(token):
     message += "\nline:" + str(token.lineno)
     message += "\nposition:" + str(token.lexpos)
     raise Exception(message)
+ 
