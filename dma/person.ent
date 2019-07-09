@@ -1,0 +1,45 @@
+certificado Alumno1 {
+  "Alejandro Daza"
+  20001020002
+  50
+  "Curso Ciencias 3, "
+  "Curso Modelos 2, "
+  "Profesor"
+}
+
+certificado Alumno2 {
+  "Esteban Ruiz"
+  20161020519
+  50
+  "Curso Ciencias 3"
+}
+certificado Alumno3 {
+  "Henry Diosa"
+  19981020346
+  40
+  "Curso modelos 2"
+  "Profesor, "  
+}
+certificado Alumno4 {
+  "Juan Mata Rios"
+  20101025737
+  40
+  "Curso GLUD, "
+  "Linux basico"
+}
+certificado Alumno5 {
+  "Armando Casas"
+  20101020343
+  40
+  "Linux avanzado, "
+  "Curso Ciencias 3"
+}
+certificado Alumno6 {
+  "Elver Melo"
+  20181020120
+  30
+  "Curso GLUD"
+}
+
+
+
